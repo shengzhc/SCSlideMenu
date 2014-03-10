@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Shengzhe Chen. All rights reserved.
 //
 
+#import "SCSlideMenuViewController.h"
 #import "SCFirstViewController.h"
 
 @interface SCFirstViewController ()
@@ -22,21 +23,28 @@
 	// Do any additional setup after loading the view.
     _backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mac-green.png"]];
     [self.view addSubview:_backgroundImageView];
+    self.navigationItem.leftBarButtonItem = ({
+        UIBarButtonItem *menuBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self action:@selector(menuButtonClicked:)];
+        menuBarButtonItem;
+    });
 }
 
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
     _backgroundImageView.frame = self.view.bounds;
-    _backgroundImageView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.5f, 1.5f);
-    NSLog(@"%@", NSStringFromCGPoint(_backgroundImageView.center));
-    NSLog(@"%@", _backgroundImageView);
 }
 
-- (void)didReceiveMemoryWarning
+- (void)menuButtonClicked:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    UIViewController *parent = self.parentViewController;
+    while (parent) {
+        if ([parent isKindOfClass:[SCSlideMenuViewController class]]) {
+            [(SCSlideMenuViewController *)parent showMenuViewController];
+            break;
+        }
+        parent = parent.parentViewController;
+    }
 }
 
 @end

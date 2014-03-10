@@ -19,7 +19,7 @@
     // Override point for customization after application launch.
     SCMenuViewController *menuViewController = [[SCMenuViewController alloc] init];
     SCFirstViewController *firstViewController = [[SCFirstViewController alloc] init];
-    SCSlideMenuViewController *slideMenu = [[SCSlideMenuViewController alloc] initWithMenuViewController:menuViewController contentViewController:firstViewController];
+    SCSlideMenuViewController *slideMenu = [[SCSlideMenuViewController alloc] initWithMenuViewController:menuViewController contentViewController:[[UINavigationController alloc] initWithRootViewController:firstViewController]];
     self.window.rootViewController = slideMenu;
     [self.window makeKeyAndVisible];
     return YES;

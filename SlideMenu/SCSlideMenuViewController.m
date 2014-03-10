@@ -12,6 +12,7 @@
 {
     UIViewController *_menuViewController;
     UIViewController *_contentViewController;
+    UIImageView *_backgroundImageView;
 }
 
 @end
@@ -27,16 +28,7 @@
     return self;
 }
 
-- (id)initWithMenuViewController:(UIViewController *)menuViewController contentViewController:(UIViewController *)contentViewController
-{
-    if (self = [super init]) {
-        [self _setMenuViewController:menuViewController];
-        [self _setContentViewController:contentViewController];
-    }
-    
-    return self;
-}
-
+#pragma private methods
 - (void)_initialize
 {
 }
@@ -74,6 +66,46 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _backgroundImageView = [[UIImageView alloc] initWithImage:nil];
+    [self.view addSubview:_backgroundImageView];
+}
+
+- (void)viewWillLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    _backgroundImageView.frame = self.view.bounds;
+}
+
+- (id)initWithMenuViewController:(UIViewController *)menuViewController contentViewController:(UIViewController *)contentViewController
+{
+    if (self = [super init]) {
+        [self _setMenuViewController:menuViewController];
+        [self _setContentViewController:contentViewController];
+    }
+    
+    return self;
+}
+
+- (void)setBackgroundImage:(UIImage *)image
+{
+    _backgroundImageView.image = image;
+    CGPoint center = _backgroundImageView.center;
+    CGAffineTransform transform = _backgroundImageView.transform;
+    _backgroundImageView.transform = CGAffineTransformIdentity;
+    _backgroundImageView.frame = self.view.bounds;
+    _backgroundImageView.image = image;
+    _backgroundImageView.transform = transform;
+    _backgroundImageView.center = center;
+}
+
+- (void)showMenuViewController
+{
+    
+}
+
+- (void)hideMenuViewController
+{
+    
 }
 
 - (BOOL)prefersStatusBarHidden

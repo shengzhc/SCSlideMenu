@@ -11,5 +11,8 @@
 @interface SCSlideMenuViewController : UIViewController
 
 - (id)initWithMenuViewController:(UIViewController *)menuViewController contentViewController:(UIViewController *)contentViewController;
+- (void)setBackgroundImage:(UIImage *)image;
+- (void)showMenuViewController;
+- (void)hideMenuViewController;
 
 @end
