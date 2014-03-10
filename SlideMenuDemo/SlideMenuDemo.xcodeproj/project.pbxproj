@@ -19,6 +19,10 @@
 		9C2F8DD718CD887400A79F4C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C2F8DBF18CD887400A79F4C /* UIKit.framework */; };
 		9C2F8DDF18CD887400A79F4C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9C2F8DDD18CD887400A79F4C /* InfoPlist.strings */; };
 		9C2F8DE118CD887400A79F4C /* SlideMenuDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2F8DE018CD887400A79F4C /* SlideMenuDemoTests.m */; };
+		9C2F8DEE18CD89CC00A79F4C /* SCSlideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2F8DED18CD89CC00A79F4C /* SCSlideMenuViewController.m */; };
+		9C2F8DF318CD8BD200A79F4C /* mac-galaxy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C2F8DF018CD8BD200A79F4C /* mac-galaxy.jpg */; };
+		9C2F8DF418CD8BD200A79F4C /* mac-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C2F8DF118CD8BD200A79F4C /* mac-green.png */; };
+		9C2F8DF518CD8BD200A79F4C /* mac-space.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C2F8DF218CD8BD200A79F4C /* mac-space.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,11 @@
 		9C2F8DDC18CD887400A79F4C /* SlideMenuDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SlideMenuDemoTests-Info.plist"; sourceTree = "<group>"; };
 		9C2F8DDE18CD887400A79F4C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9C2F8DE018CD887400A79F4C /* SlideMenuDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SlideMenuDemoTests.m; sourceTree = "<group>"; };
+		9C2F8DEC18CD89CC00A79F4C /* SCSlideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSlideMenuViewController.h; sourceTree = "<group>"; };
+		9C2F8DED18CD89CC00A79F4C /* SCSlideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSlideMenuViewController.m; sourceTree = "<group>"; };
+		9C2F8DF018CD8BD200A79F4C /* mac-galaxy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mac-galaxy.jpg"; sourceTree = "<group>"; };
+		9C2F8DF118CD8BD200A79F4C /* mac-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-green.png"; sourceTree = "<group>"; };
+		9C2F8DF218CD8BD200A79F4C /* mac-space.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mac-space.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +117,7 @@
 		9C2F8DC118CD887400A79F4C /* SlideMenuDemo */ = {
 			isa = PBXGroup;
 			children = (
+				9C2F8DEF18CD8BBC00A79F4C /* images */,
 				9C2F8DCA18CD887400A79F4C /* SCAppDelegate.h */,
 				9C2F8DCB18CD887400A79F4C /* SCAppDelegate.m */,
 				9C2F8DCD18CD887400A79F4C /* Images.xcassets */,
@@ -148,9 +158,21 @@
 		9C2F8DEB18CD88B600A79F4C /* SlideMenu */ = {
 			isa = PBXGroup;
 			children = (
+				9C2F8DEC18CD89CC00A79F4C /* SCSlideMenuViewController.h */,
+				9C2F8DED18CD89CC00A79F4C /* SCSlideMenuViewController.m */,
 			);
 			name = SlideMenu;
 			path = ../SlideMenu;
+			sourceTree = "<group>";
+		};
+		9C2F8DEF18CD8BBC00A79F4C /* images */ = {
+			isa = PBXGroup;
+			children = (
+				9C2F8DF018CD8BD200A79F4C /* mac-galaxy.jpg */,
+				9C2F8DF118CD8BD200A79F4C /* mac-green.png */,
+				9C2F8DF218CD8BD200A79F4C /* mac-space.jpg */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,7 +252,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C2F8DC618CD887400A79F4C /* InfoPlist.strings in Resources */,
+				9C2F8DF518CD8BD200A79F4C /* mac-space.jpg in Resources */,
 				9C2F8DCE18CD887400A79F4C /* Images.xcassets in Resources */,
+				9C2F8DF318CD8BD200A79F4C /* mac-galaxy.jpg in Resources */,
+				9C2F8DF418CD8BD200A79F4C /* mac-green.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C2F8DCC18CD887400A79F4C /* SCAppDelegate.m in Sources */,
+				9C2F8DEE18CD89CC00A79F4C /* SCSlideMenuViewController.m in Sources */,
 				9C2F8DC818CD887400A79F4C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
