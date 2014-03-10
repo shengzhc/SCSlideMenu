@@ -8,6 +8,8 @@
 
 #import "SCAppDelegate.h"
 #import "SCSlideMenuViewController.h"
+#import "SCFirstViewController.h"
+#import "SCMenuViewController.h"
 
 @implementation SCAppDelegate
 
@@ -15,8 +17,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    SCSlideMenuViewController *slideMenu = [[SCSlideMenuViewController alloc] init];
-    slideMenu.view.backgroundColor = [UIColor redColor];
+    SCMenuViewController *menuViewController = [[SCMenuViewController alloc] init];
+    SCFirstViewController *firstViewController = [[SCFirstViewController alloc] init];
+    SCSlideMenuViewController *slideMenu = [[SCSlideMenuViewController alloc] initWithMenuViewController:menuViewController contentViewController:firstViewController];
     self.window.rootViewController = slideMenu;
     [self.window makeKeyAndVisible];
     return YES;

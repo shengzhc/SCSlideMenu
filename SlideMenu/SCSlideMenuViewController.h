@@ -10,4 +10,6 @@
 
 @interface SCSlideMenuViewController : UIViewController
 
+- (id)initWithMenuViewController:(UIViewController *)menuViewController contentViewController:(UIViewController *)contentViewController;
+
 @end

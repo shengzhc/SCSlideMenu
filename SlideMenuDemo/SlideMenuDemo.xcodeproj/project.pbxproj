@@ -23,6 +23,8 @@
 		9C2F8DF318CD8BD200A79F4C /* mac-galaxy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C2F8DF018CD8BD200A79F4C /* mac-galaxy.jpg */; };
 		9C2F8DF418CD8BD200A79F4C /* mac-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 9C2F8DF118CD8BD200A79F4C /* mac-green.png */; };
 		9C2F8DF518CD8BD200A79F4C /* mac-space.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9C2F8DF218CD8BD200A79F4C /* mac-space.jpg */; };
+		9C2F8DF818CD9A4200A79F4C /* SCMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2F8DF718CD9A4200A79F4C /* SCMenuViewController.m */; };
+		9C2F8DFB18CD9A4700A79F4C /* SCFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C2F8DFA18CD9A4700A79F4C /* SCFirstViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,10 @@
 		9C2F8DF018CD8BD200A79F4C /* mac-galaxy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mac-galaxy.jpg"; sourceTree = "<group>"; };
 		9C2F8DF118CD8BD200A79F4C /* mac-green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mac-green.png"; sourceTree = "<group>"; };
 		9C2F8DF218CD8BD200A79F4C /* mac-space.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "mac-space.jpg"; sourceTree = "<group>"; };
+		9C2F8DF618CD9A4200A79F4C /* SCMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMenuViewController.h; sourceTree = "<group>"; };
+		9C2F8DF718CD9A4200A79F4C /* SCMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMenuViewController.m; sourceTree = "<group>"; };
+		9C2F8DF918CD9A4700A79F4C /* SCFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFirstViewController.h; sourceTree = "<group>"; };
+		9C2F8DFA18CD9A4700A79F4C /* SCFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCFirstViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,10 @@
 				9C2F8DCB18CD887400A79F4C /* SCAppDelegate.m */,
 				9C2F8DCD18CD887400A79F4C /* Images.xcassets */,
 				9C2F8DC218CD887400A79F4C /* Supporting Files */,
+				9C2F8DF618CD9A4200A79F4C /* SCMenuViewController.h */,
+				9C2F8DF718CD9A4200A79F4C /* SCMenuViewController.m */,
+				9C2F8DF918CD9A4700A79F4C /* SCFirstViewController.h */,
+				9C2F8DFA18CD9A4700A79F4C /* SCFirstViewController.m */,
 			);
 			path = SlideMenuDemo;
 			sourceTree = "<group>";
@@ -277,6 +287,8 @@
 				9C2F8DCC18CD887400A79F4C /* SCAppDelegate.m in Sources */,
 				9C2F8DEE18CD89CC00A79F4C /* SCSlideMenuViewController.m in Sources */,
 				9C2F8DC818CD887400A79F4C /* main.m in Sources */,
+				9C2F8DFB18CD9A4700A79F4C /* SCFirstViewController.m in Sources */,
+				9C2F8DF818CD9A4200A79F4C /* SCMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
