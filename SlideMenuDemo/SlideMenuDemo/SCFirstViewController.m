@@ -40,7 +40,7 @@
     UIViewController *parent = self.parentViewController;
     while (parent) {
         if ([parent isKindOfClass:[SCSlideMenuViewController class]]) {
-            [(SCSlideMenuViewController *)parent showMenuViewController];
+            [(SCSlideMenuViewController *)parent showMenuViewController:YES];
             break;
         }
         parent = parent.parentViewController;

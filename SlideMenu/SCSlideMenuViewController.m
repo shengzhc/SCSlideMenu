@@ -13,6 +13,7 @@
     UIViewController *_menuViewController;
     UIViewController *_contentViewController;
     UIImageView *_backgroundImageView;
+    UIButton *_contentButton;
 }
 
 @end
@@ -31,6 +32,9 @@
 #pragma private methods
 - (void)_initialize
 {
+    _shouldScaleBackgroundImage = YES;
+    _backgroundImageScalor = 1.5f;
+    _contentScalor = 0.5f;
 }
 
 - (void)_setMenuViewController:(UIViewController *)menuViewController
@@ -63,11 +67,22 @@
     }
 }
 
+- (void)_contentButtonClicked:(UIButton *)sender
+{
+    [self hideMenuViewController:YES];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _backgroundImageView = [[UIImageView alloc] initWithImage:nil];
+    _backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mac-space.jpg"]];
     [self.view addSubview:_backgroundImageView];
+    _contentButton = ({
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn addTarget:self action:@selector(_contentButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [btn setBackgroundColor:[UIColor clearColor]];
+        btn;
+    });
 }
 
 - (void)viewWillLayoutSubviews
@@ -78,7 +93,7 @@
 
 - (id)initWithMenuViewController:(UIViewController *)menuViewController contentViewController:(UIViewController *)contentViewController
 {
-    if (self = [super init]) {
+    if (self = [self init]) {
         [self _setMenuViewController:menuViewController];
         [self _setContentViewController:contentViewController];
     }
@@ -98,14 +113,62 @@
     _backgroundImageView.center = center;
 }
 
-- (void)showMenuViewController
+- (void)showMenuViewController:(BOOL)animated
 {
+    _backgroundImageView.transform = CGAffineTransformIdentity;
+    _backgroundImageView.frame = self.view.bounds;
+
+    _contentButton.frame = _contentViewController.view.frame;
+    [_contentViewController.view addSubview:_contentButton];
     
+    void (^transform)(void) = ^{
+        if (_shouldScaleBackgroundImage) {
+            _backgroundImageView.transform = CGAffineTransformScale(CGAffineTransformIdentity, _backgroundImageScalor, _backgroundImageScalor);
+        }
+        double contentXScalor = self.contentScalor;
+        double contentYScalor = self.view.bounds.size.height / self.view.bounds.size.width * contentXScalor;
+        _contentViewController.view.transform = CGAffineTransformScale(CGAffineTransformIdentity, contentXScalor, contentYScalor);
+        _contentViewController.view.center = CGPointMake(self.view.bounds.size.width, self.view.bounds.size.height/2.0f);
+    };
+
+    if (animated) {
+        [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+        [UIView animateWithDuration:1.0f
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             transform();
+                         } completion:^(BOOL finished) {
+                             [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+                         }];
+    } else {
+        transform();
+    }
 }
 
-- (void)hideMenuViewController
+- (void)hideMenuViewController:(BOOL)animated
 {
+    void(^transform)(void) = ^{
+        _backgroundImageView.transform = CGAffineTransformIdentity;
+        _backgroundImageView.frame = self.view.bounds;
+        _contentViewController.view.transform = CGAffineTransformIdentity;
+        _contentViewController.view.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));
+    };
     
+    if (animated) {
+        [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+        [UIView animateWithDuration:1.0f
+                              delay:0
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             transform();
+                         } completion:^(BOOL finished) {
+                             [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+                             [_contentButton removeFromSuperview];
+                         }];
+    } else {
+        transform();
+    }
 }
 
 - (BOOL)prefersStatusBarHidden

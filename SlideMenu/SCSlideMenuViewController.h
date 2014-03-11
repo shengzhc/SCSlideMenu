@@ -10,9 +10,13 @@
 
 @interface SCSlideMenuViewController : UIViewController
 
+@property (nonatomic, assign) BOOL shouldScaleBackgroundImage;
+@property (nonatomic, assign) double backgroundImageScalor;
+@property (nonatomic, assign) double contentScalor;
+
 - (id)initWithMenuViewController:(UIViewController *)menuViewController contentViewController:(UIViewController *)contentViewController;
 - (void)setBackgroundImage:(UIImage *)image;
-- (void)showMenuViewController;
-- (void)hideMenuViewController;
+- (void)showMenuViewController:(BOOL)animated;
+- (void)hideMenuViewController:(BOOL)animated;
 
 @end
